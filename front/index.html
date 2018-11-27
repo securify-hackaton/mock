@@ -7,30 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 
 </head>
 <body>
     <div id="app">
         <h1>Netflix</h1>
-        <h2>Log in</h2>
-        <br>
-        <template v-if="error">
+        <template v-if="connected">
+            <h2>Thanks !</h2>
             <br>
-            <p class="error" v-html="error" />
-            <br>
+            <p>
+                Extremely secure content !!!1!
+            </p>
         </template>
         <template v-else>
+            <h2>Log in</h2>
             <br>
-            <div v-if="waiting">
-                Please open Securify and show your face !
-            </div>
-            <div v-else-if="showForm">
-                <label>Email</label><br>
-                <input type="text" v-model="email" /><br>
-                <input type="submit" value="Send notification" @click="login" />
-            </div>
-            <input v-else type="submit" value="Log in with Securify" @click="showForm = true" />
+            <template v-if="error">
+                <br>
+                <p class="error" v-html="error" />
+                <br>
+            </template>
+            <template v-else>
+                <br>
+                <div v-if="waiting">
+                    Please open Securify !
+                    <...Loading...>
+                </div>
+                <div v-else-if="showForm">
+                    <label>Email</label><br>
+                    <input type="text" v-model="email" /><br>
+                    <input type="submit" value="Send notification" @click="login" />
+                </div>
+                <input v-else type="submit" value="Log in with Securify" @click="showForm = true" />
+            </template>
         </template>
     </div>
 

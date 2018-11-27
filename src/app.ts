@@ -30,8 +30,8 @@ class App {
     }
     this.app = express()
     this.config()
-    this.routesSetup()
     this.socketSetup()
+    this.routesSetup()
     this.listen()
   }
 
@@ -50,7 +50,7 @@ class App {
   private routesSetup(): void {
     this.app.options('*', cors())
     this.app.route('/securify').post(this.handleAuthWithSecurify)
-    this.app.route('/callback').post(this.handleCallback)
+    this.app.route('/callback').post(this.handleCallback(this.io))
   }
 
   private listen(): void {
@@ -90,7 +90,7 @@ class App {
         userEmail: req.body.email
       })
       console.log('transmitted to securify: ', response.data)
-      res.status(response.status).send({ message: 'ok' })
+      res.status(response.status).send({ requestId: response.data.requestId })
     } catch (e) {
       console.log(e.response.data)
       try {
@@ -102,8 +102,12 @@ class App {
     }
   }
 
-  private handleCallback(req: Request, res: Response) {
-
+  // Inject socket.io into the request
+  private handleCallback(io) {
+    return function (req: Request, res: Response) {
+      io.emit(req.body.requestId, req.body)
+      res.status(200).send({ message: 'received' })
+    }
   }
 }
 

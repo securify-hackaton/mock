@@ -5,6 +5,8 @@ var app = new Vue({
     showForm: false,
     waiting: false,
     error: null,
+    connected: false,
+    socket: null
   }),
   methods: {
     async login () {
@@ -16,6 +18,16 @@ var app = new Vue({
         })
 
         console.log(response)
+
+        this.socket.on(response.data.requestId, (response) => {
+          console.log('received a response !', response)
+          const { validated, reason } = response
+          this.connected = validated
+          
+          if (!validated) {
+            this.error = `Login denied: ${reason}`
+          }
+        })
       } catch (e) {
         try {
           this.error = `Logging in failed: ${e.response.data.message}`
@@ -25,5 +37,8 @@ var app = new Vue({
         console.error(e)
       }
     }
+  },
+  created () {
+    this.socket = io('http://localhost:3001')
   }
 })
