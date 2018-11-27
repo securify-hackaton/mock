@@ -8,19 +8,24 @@ import * as cors from 'cors'
 import * as morgan from 'morgan'
 import axios from 'axios'
 
+const privateKey: string = process.env.PRIVATE_KEY
+const publicKey: string = process.env.PUBLIC_KEY
+const securifyURL: string = process.env.SECURIFY_URL
+
 class App {
   private server: Server
-  private privateKey: string = process.env.PRIVATE_KEY
-  private securifyURL: string = process.env.SECURIFY_URL
   private io: SocketIO.Server
 
   public app: express.Application
 
   constructor() {
-    if (!this.privateKey) {
+    if (!privateKey) {
       throw new Error('PRIVATE_KEY is mandatory')
     }
-    if (!this.securifyURL) {
+    if (!publicKey) {
+      throw new Error('PUBLIC_KEY is mandatory')
+    }
+    if (!securifyURL) {
       throw new Error('SECURIFY_URL is mandatory')
     }
     this.app = express()
@@ -79,16 +84,21 @@ class App {
       return
     }
     try {
-      const response = await axios.post(`${this.securifyURL}/authorize`, {
-        privateKey: this.privateKey,
-        email: req.body.email
+      const response = await axios.post(`${securifyURL}/authorize`, {
+        privateKey,
+        publicKey,
+        userEmail: req.body.email
       })
-      console.log('transmitting to securify: ', response)
+      console.log('transmitted to securify: ', response.data)
       res.status(response.status).send({ message: 'ok' })
-
     } catch (e) {
-      console.log(e)
-      res.status(500).send(e)
+      console.log(e.response.data)
+      try {
+        res.status(400).send({ message: e.response.data.message })
+      } catch (ex) {
+        console.log('unknown error:', ex)
+        res.status(500).send(({ message: 'unknown error'}))
+      }
     }
   }
 
