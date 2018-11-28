@@ -1,5 +1,5 @@
-var socketURL = 'http://localhost:3001'
-var securifyURL = 'http://localhost:3001/securify'
+var socketURL = '/'
+var securifyURL = '/securify'
 var profileURL = 'http://localhost:3000/'
 
 var app = new Vue({
