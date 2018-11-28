@@ -51,7 +51,7 @@ var app = new Vue({
       }
     },
     async validateToken () {
-      if (!securifyToken) {
+      if (!this.securifyToken) {
         return
       }
 
