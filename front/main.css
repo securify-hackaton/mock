@@ -1,17 +1,91 @@
+
+@font-face {
+    font-family: 'bebas';
+    src: url('font/bebasneue-webfont.woff2') format('woff2'),
+         url('font/bebasneue-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .error {
     color: red;
     font-weight: bold;
 }
 
+html {
+    height: 100vh;
+}
+
 body {
-    background: #000;
+    background-image: url('./img/wallpaper.jpg');
+    height: 100%;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
 }
 
 h1 {
+    font-family: 'bebas';
+    font-size: 5rem;
+    letter-spacing: 10px;
     color: red;
 }
 
+h2 {
+    font-family: "arial";
+    font-size: 2rem;
+}
+
 #app {
+    margin-top: 50px;
     text-align: center;
+    width: 500px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.loginButton {
+    border: none;
+    color: white;
+    background: red;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    font-family: "arial";
+    font-size: 1rem;
+}
+
+.inputEmail {
+    border: none;
+    color: white;
+    background: rgba(50,50,50);
+    border-radius: 3px;
+    padding: 10px 20px;
+    outline: none;
+    font-family: "arial";
+    font-size: 1rem;
+}
+
+.emailLabel {
+    font-family: "arial";
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 5px;
 }

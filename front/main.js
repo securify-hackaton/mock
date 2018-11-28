@@ -76,7 +76,7 @@ var app = new Vue({
   },
   created () {
     this.socket = io(socketURL)
-    this.email = localStorage.getItem('email')
+    this.email = localStorage.getItem('email') 
     this.securifyToken = localStorage.getItem('securifyToken')
     this.validateToken()
   }

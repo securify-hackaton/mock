@@ -33,17 +33,20 @@
                 <br>
                 <div v-if="waiting">
                     Please open Securify !
-                    <...Loading...>
                 </div>
                 <div v-else-if="showForm">
-                    <label>Email</label><br>
-                    <input type="text" v-model="email" /><br>
-                    <input type="submit" value="Send notification" @click="login" />
+                    <div class="loginButtonsContainer">
+                        <span class="emailLabel">Email :</span>
+                        <input type="text" class="inputEmail" v-model="email" /><br><br>
+                        <input class="loginButton" type="submit" value="Send notification" @click="login" />
+                    </div>
                 </div>
                 <template v-else>
-                    <input type="submit" value="Log in with Google" /><br><br>
-                    <input type="submit" value="Log in with Facebook" /><br><br>
-                    <input type="submit" value="Log in with Securify" @click="showForm = true" />
+                    <div class="loginButtonsContainer">    
+                        <input type="submit" class="loginButton" value="Log in with Google" /><br><br>
+                        <input type="submit" class="loginButton" value="Log in with Facebook" /><br><br>
+                        <input type="submit" class="loginButton" value="Log in with Securify" @click="showForm = true" />
+                    </div>
                 </template>
             </template>
         </template>
