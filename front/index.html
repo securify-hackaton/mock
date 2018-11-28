@@ -40,7 +40,11 @@
                     <input type="text" v-model="email" /><br>
                     <input type="submit" value="Send notification" @click="login" />
                 </div>
-                <input v-else type="submit" value="Log in with Securify" @click="showForm = true" />
+                <template v-else>
+                    <input type="submit" value="Log in with Google" /><br><br>
+                    <input type="submit" value="Log in with Facebook" /><br><br>
+                    <input type="submit" value="Log in with Securify" @click="showForm = true" />
+                </template>
             </template>
         </template>
     </div>
