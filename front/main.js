@@ -13,6 +13,10 @@ var app = new Vue({
       this.waiting = true
       console.log(`logging ${this.email} in`)
       try {
+        if (!localStorage['email']) {
+          localStorage['email'] = this.email
+        }
+
         const response = await axios.post('http://localhost:3001/securify', {
           email: this.email
         })
@@ -23,6 +27,8 @@ var app = new Vue({
           console.log('received a response !', response)
           const { validated, reason } = response
           this.connected = validated
+          
+          localStorage['email'] = this.email
           
           if (!validated) {
             this.error = `Login denied: ${reason}`
@@ -40,5 +46,6 @@ var app = new Vue({
   },
   created () {
     this.socket = io('http://localhost:3001')
+    this.email = localStorage['email']
   }
 })

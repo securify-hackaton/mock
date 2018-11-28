@@ -49,6 +49,7 @@ class App {
 
   private routesSetup(): void {
     this.app.options('*', cors())
+    this.app.use('/', express.static('front'))
     this.app.route('/securify').post(this.handleAuthWithSecurify)
     this.app.route('/callback').post(this.handleCallback(this.io))
   }
@@ -84,7 +85,7 @@ class App {
       return
     }
     try {
-      const response = await axios.post(`${securifyURL}/authorize`, {
+      const response = await axios.post(`${securifyURL}`, {
         privateKey,
         publicKey,
         userEmail: req.body.email
