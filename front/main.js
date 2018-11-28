@@ -17,8 +17,8 @@ var app = new Vue({
       this.waiting = true
       console.log(`logging ${this.email} in`)
       try {
-        if (!localStorage['email']) {
-          localStorage['email'] = this.email
+        if (!localStorage.getItem('email')) {
+          localStorage.setItem('email', this.email)
         }
 
         const response = await axios.post(securifyURL, {
