@@ -11,6 +11,7 @@ import axios from 'axios'
 const privateKey: string = process.env.PRIVATE_KEY
 const publicKey: string = process.env.PUBLIC_KEY
 const securifyURL: string = process.env.SECURIFY_URL
+const frontSkin: string = process.env.FRONT_SKIN || 'epsi'
 
 class App {
   private server: Server
@@ -49,7 +50,7 @@ class App {
 
   private routesSetup(): void {
     this.app.options('*', cors())
-    this.app.use('/', express.static('front'))
+    this.app.use('/', express.static(`front/${frontSkin}`))
     this.app.route('/securify').post(this.handleAuthWithSecurify)
     this.app.route('/callback').post(this.handleCallback(this.io))
   }

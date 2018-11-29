@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Site vitrine Spautify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="dancing-man"></div>
+    <div id="app">
+        <h1>SPAUTIFY</h1>
+        <template v-if="connected">
+            <h2>Thanks !</h2>
+            <br>
+            <p>
+                Extremely secure content !!!1!
+            </p>
+        </template>
+        <template v-else>
+            <h2>Log in</h2>
+            <br>
+            <template v-if="error">
+                <br>
+                <h2 class="error" v-html="error"></h2>
+                <br>
+            </template>
+            <template v-else>
+                <br>
+                <div v-if="waiting">
+                    <img width="100px" height="100px" class="loadingSpinner" src="./img/site-spinner.png" alt="spinner">
+                    <h2>Please open Securify !</h2>
+                </div>
+                <div v-else-if="showForm">
+                    <div class="loginButtonsContainer">
+                        <span class="emailLabel">Email :</span>
+                        <input type="text" class="inputEmail" v-model="email" /><br><br>
+                        <input class="loginButton" type="submit" value="Send notification" @click="login" />
+                    </div>
+                </div>
+                <template v-else>
+                    <div class="loginButtonsContainer">    
+                        <input type="submit" class="loginButton" value="Log in with Google" /><br><br>
+                        <input type="submit" class="loginButton" value="Log in with Facebook" /><br><br>
+                        <input type="submit" class="loginButton" value="Log in with Securify" @click="showForm = true" />
+                    </div>
+                </template>
+            </template>
+        </template>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+@font-face {
+    font-family: 'bebas';
+    src: url('font/bebasneue-webfont.woff2') format('woff2'),
+         url('font/bebasneue-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.error {
+    color: #e50914;
+    font-weight: bold;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    /* background-image: url('./img/wallpaper.jpg'); */
+    background: radial-gradient(ellipse at center, #f6cb6c 0%, #f3c65d 0%, #f2ae54 100%);
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'bebas';
+    font-size: 5rem;
+    letter-spacing: 10px;
+    color: #fff;
+}
+
+h2 {
+    font-family: "arial";
+    font-size: 2rem;
+}
+
+#app {
+    margin-top: 50px;
+    text-align: center;
+    width: 500px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+#dancing-man {
+    background-image: url('./img/background.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 100%;
+    width: 400px;
+    right: 100px;
+    position: fixed;
+    z-index: -500;
+}
+
+.loginButton {
+    border: none;
+    color: white;
+    background: #1DB954;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    font-family: "arial";
+    font-size: 1rem;
+}
+
+.inputEmail {
+    border: none;
+    color: white;
+    background: rgba(50,50,50);
+    border-radius: 3px;
+    padding: 10px 20px;
+    outline: none;
+    font-family: "arial";
+    font-size: 1rem;
+}
+
+.emailLabel {
+    font-family: "arial";
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.loadingSpinner {
+    animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg)
+    }
+  
+    to {
+     transform: rotate(360deg)
+    }
+}
