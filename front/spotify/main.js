@@ -1,6 +1,6 @@
 var socketURL = '/'
 var securifyURL = '/securify'
-var profileURL = 'http://localhost:3000/'
+var profileURL = 'https://securify-server.herokuapp.com/'
 
 var app = new Vue({
   el: '#app',

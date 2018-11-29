@@ -1,7 +1,6 @@
 import * as bodyParser from 'body-parser'
 import * as express from 'express'
-import { Request, Response, NextFunction } from 'express'
-import * as mongoose from 'mongoose'
+import { Request, Response } from 'express'
 import * as socketIo from 'socket.io'
 import { createServer, Server } from 'http'
 import * as cors from 'cors'
