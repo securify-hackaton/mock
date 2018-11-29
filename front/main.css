@@ -9,7 +9,7 @@
 }
 
 .error {
-    color: red;
+    color: #e50914;
     font-weight: bold;
 }
 
@@ -33,7 +33,7 @@ h1 {
     font-family: 'bebas';
     font-size: 5rem;
     letter-spacing: 10px;
-    color: red;
+    color: #e50914;
 }
 
 h2 {
@@ -45,7 +45,7 @@ h2 {
     margin-top: 50px;
     text-align: center;
     width: 500px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
     border-radius: 15px;
     flex: 1;
     display: flex;
@@ -63,7 +63,7 @@ h2 {
 .loginButton {
     border: none;
     color: white;
-    background: red;
+    background: #e50914;
     border-radius: 3px;
     padding: 10px 20px;
     cursor: pointer;
