@@ -58,10 +58,10 @@ class App {
     let port: number
     try {
       // Setting the default PORT to 3001
-      if (!process.env.BIDON_PORT) {
-        throw new Error('BIDON_PORT is mandatory')
+      if (!process.env.PORT) {
+        throw new Error('PORT is mandatory')
       }
-      port = parseInt(process.env.BIDON_PORT, 10)
+      port = parseInt(process.env.PORT, 10)
     } catch (e) {
       port = 3001
     }
