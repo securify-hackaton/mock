@@ -38,8 +38,10 @@
                 </div>
                 <div v-else-if="showForm">
                     <div class="loginButtonsContainer">
-                        <span class="emailLabel">Email :</span>
-                        <input type="text" class="inputEmail" v-model="email" /><br><br>
+                        <span class="emailLabel">Email:</span>
+                        <input type="text" class="inputEmail" v-model="email" /><br>
+                        <span class="emailLabel">Device name:</span>
+                        <input type="text" class="inputEmail" v-model="deviceName" /><br><br>
                         <input class="loginButton" type="submit" value="Send notification" @click="login" />
                     </div>
                 </div>

@@ -84,11 +84,16 @@ class App {
       res.status(400).send({ message: 'email is mandatory' })
       return
     }
+    if (!req.body.deviceName) {
+      res.status(400).send({ message: 'deviceName is mandatory' })
+      return
+    }
     try {
       const response = await axios.post(`${securifyURL}`, {
         privateKey,
         publicKey,
-        userEmail: req.body.email
+        userEmail: req.body.email,
+        deviceName: req.body.deviceName
       })
       console.log('transmitted to securify: ', response.data)
       res.status(response.status).send({ requestId: response.data.requestId })

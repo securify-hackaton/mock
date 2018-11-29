@@ -6,6 +6,7 @@ var app = new Vue({
   el: '#app',
   data: () => ({
     email: '',
+    deviceName: '',
     showForm: false,
     waiting: false,
     error: null,
@@ -21,8 +22,11 @@ var app = new Vue({
           localStorage.setItem('email', this.email)
         }
 
+        localStorage.setItem('deviceName', this.deviceName)
+
         const response = await axios.post(securifyURL, {
-          email: this.email
+          email: this.email,
+          deviceName: this.deviceName
         })
 
         console.log(response)
@@ -76,7 +80,8 @@ var app = new Vue({
   },
   created () {
     this.socket = io(socketURL)
-    this.email = localStorage.getItem('email') 
+    this.email = localStorage.getItem('email')
+    this.deviceName = localStorage.getItem('deviceName')
     this.securifyToken = localStorage.getItem('securifyToken')
     this.validateToken()
   }
