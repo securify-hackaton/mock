@@ -43,9 +43,9 @@ var app = new Vue({
         })
       } catch (e) {
         try {
-          this.error = `Logging in failed: ${e.response.data.message}`
+          this.error = `Something went wrong: ${e.response.data.message}`
         } catch (ex) {
-          this.error = 'Logging in failed'
+          this.error = 'Something went wrong'
         }
         console.error(e)
       }

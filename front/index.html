@@ -26,13 +26,14 @@
             <br>
             <template v-if="error">
                 <br>
-                <p class="error" v-html="error" />
+                <h2 class="error" v-html="error"></h2>
                 <br>
             </template>
             <template v-else>
                 <br>
                 <div v-if="waiting">
-                    Please open Securify !
+                    <img width="100px" height="100px" class="loadingSpinner" src="./img/site-spinner.png" alt="spinner">
+                    <h2>Please open Securify !</h2>
                 </div>
                 <div v-else-if="showForm">
                     <div class="loginButtonsContainer">
