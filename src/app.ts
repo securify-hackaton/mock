@@ -10,7 +10,7 @@ import axios from 'axios'
 const privateKey: string = process.env.PRIVATE_KEY
 const publicKey: string = process.env.PUBLIC_KEY
 const securifyURL: string = process.env.SECURIFY_URL
-const frontSkin: string = process.env.FRONT_SKIN || 'epsi'
+const frontSkin: string = process.env.FRONT_SKIN || 'netflix'
 
 class App {
   private server: Server

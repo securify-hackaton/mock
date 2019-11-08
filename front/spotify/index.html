@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Site vitrine Spautify</title>
+    <title>Almost Spotify</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -14,12 +14,12 @@
 <body>
     <div id="dancing-man"></div>
     <div id="app">
-        <h1>SPAUTIFY</h1>
+        <h1>Almost Spotify</h1>
         <template v-if="connected">
-            <h2>Thanks !</h2>
+            <h2>Thanks!</h2>
             <br>
             <p>
-                Extremely secure content !!!1!
+                Extremely secure content!!!1!
             </p>
         </template>
         <template v-else>
@@ -34,7 +34,7 @@
                 <br>
                 <div v-if="waiting">
                     <img width="100px" height="100px" class="loadingSpinner" src="./img/site-spinner.png" alt="spinner">
-                    <h2>Please open Securify !</h2>
+                    <h2>Please open Securify!</h2>
                 </div>
                 <div v-else-if="showForm">
                     <div class="loginButtonsContainer">

@@ -1,6 +1,6 @@
 var socketURL = '/'
 var securifyURL = '/securify'
-var profileURL = 'https://securify-server.herokuapp.com/'
+var profileURL = 'https://securify-server.tsauvajon.eu/'
 
 var app = new Vue({
   el: '#app',
